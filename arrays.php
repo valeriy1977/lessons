@@ -20,7 +20,7 @@ foreach($fruits as $x => $a)
         echo "<br>";
         foreach ($a as $x1=>$a1)
         {
-            $a1=$a1+1;
+            $a1+=1;
             echo "сорт: ".$x1." - ".$a1." кг.<br>";
 
         }
