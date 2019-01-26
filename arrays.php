@@ -28,7 +28,4 @@ foreach($fruits as $x => $a)
         echo "<br> <br>";
     }
 
-
-
-
 }
