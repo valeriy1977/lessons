@@ -1,5 +1,5 @@
 <?php
-$chislo = 1;
+$chislo = 2;
 
 switch ($chislo)
 {
