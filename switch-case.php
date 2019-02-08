@@ -1,7 +1,14 @@
 <?php
+<<<<<<< HEAD
 $chislo = 2;
+=======
+$chislo[]= 1;
+$chislo[]= 3;
+$chislo[]= 4;
+>>>>>>> origin/master
 
-switch ($chislo)
+
+switch ($chislo[0])
 {
     case 5:
         echo "пять";
