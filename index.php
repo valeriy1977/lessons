@@ -1,4 +1,11 @@
 <?php
 require_once "lib/functions.php";
-db();
-echo "<br>Главная страница";
+$data = db("SELECT menu_name,content FROM pages");
+
+foreach ($data as $v)
+{
+    foreach ($v as $k1=>$v1)
+    {
+        echo "<br>".$k1." - ".$v1;
+    }
+}
