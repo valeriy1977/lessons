@@ -13,7 +13,7 @@ function db($sql)
    {
         // в $result будут сырые данные
        $result = mysqli_query($connection,$sql);
-        while ($row = mysqli_fetch_assoc($result))
+        while ($row = mysqli_fetch_assoc($result)) // сохраняем одну строку c таблицы БД в $row
         {
             // сформируем новый массив $pages
             $pages[] = $row; // равен одной строке с БД
@@ -27,5 +27,19 @@ function db($sql)
         return $pages;
 
    }
+
+}
+
+function sum($a,$b)
+{
+   $summa=$a+$b;
+    if ($a>10 OR $b>10)
+    {
+        echo "Число должно быть меньше 10";
+    }
+    else
+    {
+        echo "cумма числа ".$a." и ".$b." равна ".$summa."<br>";
+    }
 
 }
