@@ -25,7 +25,11 @@ function db($sql)
 
         // возвращаем сформированный массив
         return $pages;
-
    }
 
+}
+function summa($a,$b)
+{
+    $c =  $a + $b;
+    echo "сумма чисел равна ". $c;
 }

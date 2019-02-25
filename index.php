@@ -9,3 +9,5 @@ foreach ($data as $v)
         echo "<br>".$k1." - ".$v1;
     }
 }
+
+summa(3,5);
