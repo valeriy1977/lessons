@@ -19,9 +19,9 @@ function db($sql)
             $pages[] = $row; // равен одной строке с БД
         }
 
-        echo "<PRE>";
+/*        echo "<PRE>";
         var_export($pages);
-        echo "</PRE>";
+        echo "</PRE>";*/
 
         // возвращаем сформированный массив
         return $pages;
