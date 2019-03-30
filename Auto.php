@@ -3,6 +3,7 @@
 // чертёж будущих автомобилей (объектов)
 class Auto
 {
+    public $name;
     public $brand;
     public $model;
     public $type;
@@ -11,8 +12,9 @@ class Auto
     public $year;
     public $engine;
 
-    public function __construct($b,$m,$t,$c,$s,$y,$e)
+    public function __construct($n,$b,$m,$t,$c,$s,$y,$e)
     {
+        $this->name = $n;
         $this->brand = $b;
         $this->model = $m;
         $this->type = $t;
@@ -27,9 +29,10 @@ class Auto
     public function info()
     {
         echo "Автомобиль<br>";
-        echo "Производитель: ".$this->brand."<br>";
+        echo "Принадлежит: ".$this->name." <br>";
+        echo "Производитель: ".$this->brand." <br>";
         echo "Модель: ".$this->model."<br>";
-        echo "Кузов: ".$this->type."<br>";
+        echo "Кузов: ".$this->type." <br>";
         echo "Цвет: ".$this->color."<br>";
         echo "Год выпуска: ".$this->year."<br>";
         echo "Скорость: ".$this->speed."<br>";
