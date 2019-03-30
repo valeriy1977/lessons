@@ -44,7 +44,7 @@ class Auto
     }
 }
 
-class Truck extends Auto
+class Truck extends Auto // наследование
 {
     public static $col;
     public $label = "Грузовик";
