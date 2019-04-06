@@ -1,5 +1,13 @@
 <?php
-require_once "Auto.php";
+
+
+spl_autoload_register(function ($name)
+{
+    // конвертируем полный путь в пространстве имён с \ в /
+    $name = str_replace('\\', '/', $name);
+
+    require_once($name.'.php');
+});
 
 // создали новый объект (экземпляр класса Auto)
 $valeriy_car = new Auto("физ.лицу","Ford","Focus","седан","синий",180,2019,2);

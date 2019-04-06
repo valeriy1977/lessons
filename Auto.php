@@ -4,15 +4,8 @@
 class Auto
 {
     public static $col; // статическое свойство, принадлежит не объекту, а классу
-    public $label = "Автомобиль";
-    public $name;
-    public $brand;
-    public $model;
-    public $type;
-    public $color;
-    public $speed;
-    public $year;
-    public $engine;
+    private $label = "Автомобиль";
+    public $name,$brand,$model,$type,$color,$speed,$year,$engine;
 
     public function __construct($n,$b,$m,$t,$c,$s,$y,$e)
     {

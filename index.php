@@ -9,7 +9,6 @@ foreach ($data as $v)
 }
 
 $sql = "SELECT content FROM pages WHERE id='{$_GET['page']}'";
-echo $sql."<br>";
 
 $content = db($sql);
 
