@@ -1,4 +1,5 @@
 <?php
+namespace app\classes;
 
 // чертёж будущих автомобилей (объектов)
 class Auto

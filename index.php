@@ -1,17 +1,27 @@
 <?php
+spl_autoload_register(function ($name)
+{
+    // конвертируем полный путь в пространстве имён с \ в /
+    $name = str_replace('\\', '/', $name);
+
+    require_once($name.'.php');
+});
+
 require_once "lib/functions.php"; // подключение файла
 //sum(3,5);
-$data = db("SELECT menu_name,id FROM pages");
 
-foreach ($data as $v)
+$menu = new \app\classes\Db();
+$all_menus = $menu->sql("SELECT menu_name,id FROM pages");
+
+foreach ($all_menus as $v)
 {
         echo "<br><a href='index.php?page={$v['id']}'>{$v['menu_name']}</a><br>";
 }
 
-$sql = "SELECT content FROM pages WHERE id='{$_GET['page']}'";
+/*$sql = "SELECT content FROM pages WHERE id='{$_GET['page']}'";
 
 $content = db($sql);
 
-echo $content[0]['content'];
+echo $content[0]['content'];*/
 
 //sum(16,286);
