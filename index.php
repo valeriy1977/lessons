@@ -1,4 +1,6 @@
 <?php
+namespace app\classes;
+
 spl_autoload_register(function ($name)
 {
     // конвертируем полный путь в пространстве имён с \ в /
@@ -10,7 +12,7 @@ spl_autoload_register(function ($name)
 require_once "lib/functions.php"; // подключение файла
 //sum(3,5);
 
-$menu = new \app\classes\Db();
+$menu = new Db(); //новый объект
 $all_menus = $menu->sql("SELECT menu_name,id FROM pages");
 
 foreach ($all_menus as $v)
