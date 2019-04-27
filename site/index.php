@@ -11,7 +11,7 @@ spl_autoload_register(function ($name)
 });
 
 //создадим объекты
-$menu = new Db(); // для работы с БД
+$db = new Db(); // для работы с БД
 
 require_once "lib/functions.php"; // подключение библиотеки функций
 require_once "header.php";

@@ -12,8 +12,8 @@ spl_autoload_register(function ($name)
 require_once "lib/functions.php"; // подключение файла
 //sum(3,5);
 
-$menu = new Db(); //новый объект
-$all_menus = $menu->sql("SELECT menu_name,id FROM pages");
+$dbobject = new Db(); //новый объект
+$all_menus = $dbobject->sql("SELECT menu_name,id FROM pages");
 
 foreach ($all_menus as $v)
 {
