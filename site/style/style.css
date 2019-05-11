@@ -3,12 +3,19 @@ body
     background-color: burlywood;
 }
 
-.menu
+#menu
 {
-    list-style-type: none;
+    float: left;
 }
 
-.menu a
+#menu ul
+{
+    list-style-type: none;
+    padding-left: 0;
+    width: 155px;
+}
+
+#menu a
 {
     text-decoration: none;
     background-color: blue;
@@ -20,9 +27,15 @@ body
     border-radius: 10px;
 }
 
-.menu a:hover
+#menu a:hover
 {
     background-color: gray;
     margin-left: 30px;
+
+}
+
+#content
+{
+    padding-top: 25px;
 
 }
