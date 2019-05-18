@@ -8,7 +8,7 @@
 
 <div id='content'>
     <?php
-        require_once "views//Vcontent.php";
+        require_once "views/Vcontent.php";
      ?>
 </div>
 
