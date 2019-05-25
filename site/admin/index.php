@@ -10,5 +10,4 @@ spl_autoload_register(function ($name)
     require_once($name.'.php');
 });
 
-echo "<a href='index.php?page=logout'>Выход</a>";
 require_once "router.php";
