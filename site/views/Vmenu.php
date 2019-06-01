@@ -1,6 +1,9 @@
 <?php
 $all_menus = $db->sql("SELECT menu_name,id FROM pages");
 
+$today = new \app\classes\Today();
+$today->getTodayDate();
+
 echo "<ul>\n";
 foreach ($all_menus as $v)
 {
