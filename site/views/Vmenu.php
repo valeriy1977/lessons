@@ -7,7 +7,7 @@ $today->getTodayDate();
 echo "<ul>\n";
 foreach ($all_menus as $v)
 {
-    echo "\t<li><a href='index.php?parameter=page&id={$v['id']}'>{$v['menu_name']}</a></li>\n";
+    echo "\t<li><a href='index.php?Parameter=page&id={$v['id']}'>{$v['menu_name']}</a></li>\n";
 }
 echo "\t</ul>\n";
 ?>

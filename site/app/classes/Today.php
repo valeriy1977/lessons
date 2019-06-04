@@ -7,19 +7,26 @@ class Today
 
     public function getTodayDate()
     {
-        $month ["January"] = "Январь";
-        $month ["February"] = "Февраль";
-        $month ["March"] = "Март";
-        $month ["April"] = "Апрель";
-        $month ["May"] = "Май";
+        $month ["January"] = "Января";
+        $month ["February"] = "Февраля";
+        $month ["March"] = "Марта";
+        $month ["April"] = "Апреля";
+        $month ["May"] = "Мая";
         $month ["June"] = "июня";
-        $month ["July"] = "Июль";
-        $month ["August"] = "Август";
-        $month ["September"] = "Сентябрь";
-        $month ["October"] = "Октябрь";
-        $month ["November"] = "Ноябрь";
-        $month ["December"] = "Декабрь";
+        $month ["July"] = "Июля";
+        $month ["August"] = "Августа";
+        $month ["September"] = "Сентября";
+        $month ["October"] = "Октября";
+        $month ["November"] = "Ноября";
+        $month ["December"] = "Декабря";
+        $weekday ["Monday"] = "понедельник";
+        $weekday ["Tuesday"] = "вторник";
+        $weekday ["Wednesday"] = "среда";
+        $weekday ["Thursday"] = "четверг";
+        $weekday ["Friday"] = "пятница";
+        $weekday ["Saturday"] = "суббота";
+        $weekday ["Sunday"] = "воскресенье";
 
-        echo "Сегодня ".date("j "). $month[date('F')].date(" Y года, l");
+        echo "Сегодня ".date("j "). $month[date('F')].date(" Y года, ").$weekday[date('l')].". Время ".date("H:i:s");
     }
 }
