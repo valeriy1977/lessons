@@ -14,7 +14,25 @@ if ($_SESSION['loged'])
         }
     }
 
-    echo $_SESSION['loged']." <a href='index.php?page=logout'>Выход</a>";
+    require_once "views/Vmenu.php";
+
+    if ($_GET)
+    {
+        switch ($_GET['page'])
+        {
+            case "pagelist":
+                require_once "views/Vpagelist.php";
+                break;
+            case "pageedit":
+                require_once "views/Vpageedit.php";
+                break;
+        }
+
+    }
+    if ($_POST)
+    {
+
+    }
 }
 // если пользователь не залогинен
 else
@@ -27,16 +45,19 @@ else
 
         $salt1 = md5("Дом");
         $salt2 = md5("море");
-        echo $pass = md5($salt1.md5($_POST['pass']).$salt2);
+        $pass = md5($salt1.md5($_POST['pass']).$salt2);
+
+        $sql = "SELECT name,surname FROM users WHERE login='{$_POST['login']}' AND pass='{$pass}'";
 
         // делаем запрос в БД
-        if($user = $authorization->sql("SELECT name,surname FROM users WHERE login='{$_POST['login']}' AND pass='{$pass}'"))
+        if($user = $authorization->sql($sql))
         {
             // в сессионную переменную сохраняем имя и фамилию пользователя
             $_SESSION['loged'] = $user[0]['name']." ".$user[0]['surname'];
             // перезагружаем страницу
             header('Refresh: 0');
         }
+
     }
     //подключаем форму для авторизации
     else
