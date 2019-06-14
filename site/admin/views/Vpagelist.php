@@ -1,7 +1,6 @@
 Список страниц
 <?php
-$pages = new \app\classes\Db();
-$all_pages = $pages->sql("SELECT id, menu_name FROM pages");
+$all_pages = $pages->pagesList();
 
 foreach ($all_pages as $page)
 {

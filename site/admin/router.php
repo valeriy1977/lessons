@@ -31,7 +31,16 @@ if ($_SESSION['loged'])
     }
     if ($_POST)
     {
+        if ($_GET)
+        {
+            switch ($_GET['page'])
+            {
+                case "pageedit":
+                    
+                    break;
+            }
 
+        }
     }
 }
 // если пользователь не залогинен
