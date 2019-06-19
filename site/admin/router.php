@@ -4,22 +4,17 @@ session_start();
 // если пользователь залогинен
 if ($_SESSION['loged'])
 {
-    if ($_GET)
-    {
-        // если нажали кнопку выход
-        if ($_GET['page']=='logout')
-        {
-            unset($_SESSION['loged']);
-            header('Refresh: 0; URL=../');
-        }
-    }
-
     require_once "views/Vmenu.php";
 
     if ($_GET)
     {
         switch ($_GET['page'])
         {
+            // если нажали кнопку выход
+            case "logout":
+                unset($_SESSION['loged']);
+                header('Refresh: 0; URL=../');
+                break;
             case "pagelist":
                 require_once "views/Vpagelist.php";
                 break;
@@ -29,6 +24,7 @@ if ($_SESSION['loged'])
         }
 
     }
+
     if ($_POST)
     {
         if ($_GET)
@@ -36,7 +32,7 @@ if ($_SESSION['loged'])
             switch ($_GET['page'])
             {
                 case "pageedit":
-                    
+                    $pages->savePageAfterEdit($_GET['id'],$_POST);
                     break;
             }
 
