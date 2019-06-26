@@ -21,6 +21,7 @@ class MPage extends Db
         return $result;
     }
 
+    // сохранить отредактированную страницу
     protected function saveEditedPage($sql)
     {
         echo $sql;

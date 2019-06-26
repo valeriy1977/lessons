@@ -15,9 +15,11 @@ if ($_SESSION['loged'])
                 unset($_SESSION['loged']);
                 header('Refresh: 0; URL=../');
                 break;
+            // список страниц
             case "pagelist":
                 require_once "views/Vpagelist.php";
                 break;
+            // редактирование страницы
             case "pageedit":
                 require_once "views/Vpageedit.php";
                 break;
