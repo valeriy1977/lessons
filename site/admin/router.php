@@ -23,6 +23,10 @@ if ($_SESSION['loged'])
             case "pageedit":
                 require_once "views/Vpageedit.php";
                 break;
+            // добавление страницы
+            case "pageadd":
+                require_once "views/Vpageadd.php";
+                break;
         }
 
     }
@@ -33,8 +37,13 @@ if ($_SESSION['loged'])
         {
             switch ($_GET['page'])
             {
+                // редактирование страницы
                 case "pageedit":
                     $pages->savePageAfterEdit($_GET['id'],$_POST);
+                    break;
+                // добавление страницы
+                case "pageadd":
+                    $pages->addPage($_POST);
                     break;
             }
 
@@ -48,23 +57,8 @@ else
     if ($_POST)
     {
         // создаём объект для работы с БД
-        $authorization = new \app\classes\Db();
-
-        $salt1 = md5("Дом");
-        $salt2 = md5("море");
-        $pass = md5($salt1.md5($_POST['pass']).$salt2);
-
-        $sql = "SELECT name,surname FROM users WHERE login='{$_POST['login']}' AND pass='{$pass}'";
-
-        // делаем запрос в БД
-        if($user = $authorization->sql($sql))
-        {
-            // в сессионную переменную сохраняем имя и фамилию пользователя
-            $_SESSION['loged'] = $user[0]['name']." ".$user[0]['surname'];
-            // перезагружаем страницу
-            header('Refresh: 0');
-        }
-
+        $authorization = new \app\classes\CLogin();
+        $authorization->login($_POST);
     }
     //подключаем форму для авторизации
     else

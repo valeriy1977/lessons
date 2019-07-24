@@ -32,4 +32,29 @@ class CPage extends MPage
         $this->saveEditedPage($sql);
     }
 
+    // добавить страницу
+    public function  addPage($post)
+    {
+        $sql = "INSERT INTO pages (";
+
+        foreach ($post as $key=>$value)
+        {
+            $sql .=" {$key}, ";
+        }
+
+        $sql = substr($sql,0,-2);
+        $sql .=") VALUES(";
+
+        foreach ($post as $key=>$value)
+        {
+            $sql .=" \"{$value}\", ";
+        }
+
+        $sql = substr($sql,0,-2);
+        $sql .=")";
+
+        $this->saveEditedPage($sql);
+
+    }
+
 }
