@@ -1,0 +1,18 @@
+#pagelist
+{
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+#pagelist td
+{
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+
+
+
+#pagelist .table_header td
+{
+    background-color: blue;
+    color: white;
+}

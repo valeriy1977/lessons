@@ -26,8 +26,9 @@ CREATE TABLE `pages` (
   `id` int(2) NOT NULL AUTO_INCREMENT,
   `menu_name` varchar(50) DEFAULT NULL,
   `content` text,
+  `visible_in_main_menu` enum('0','1') DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='все страницы сайта';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='все страницы сайта';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +37,7 @@ CREATE TABLE `pages` (
 
 LOCK TABLES `pages` WRITE;
 /*!40000 ALTER TABLE `pages` DISABLE KEYS */;
-INSERT INTO `pages` VALUES (1,'Главная','Текст страницы главная'),(2,'Контакты','Контакты компании'),(3,'Галерея','фото'),(4,'О нас','Информация о компании'),(5,'Товары','Каталог продукции'),(6,'Тест','Тестовая страница');
+INSERT INTO `pages` VALUES (1,'Главная','Текст страницы главная','0'),(2,'Новости','Новости компании',NULL),(3,'Галерея','фото',NULL),(4,'О нас','Информация о компании',NULL),(5,'Товары','Каталог продукции',NULL),(6,'Тест','Тестовая страница',NULL),(7,'efeef','frrgrgrgrg','1');
 /*!40000 ALTER TABLE `pages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -64,7 +65,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Иван','Иванов',1963,'976e07043c335b5229d5b5f56525b69e','ivan'),(2,'Пётр','Петров',1953,'54321','petr');
+INSERT INTO `users` VALUES (1,'Иван','Иванов',1963,'976e07043c335b5229d5b5f56525b69e','ivan'),(2,'Пётр','Петров',1953,'e8637f56cb8bb465242346cda4a44101','petr');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -77,4 +78,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-01 11:08:09
+-- Dump completed on 2019-08-20 19:11:05
