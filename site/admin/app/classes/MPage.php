@@ -9,7 +9,7 @@ class MPage extends Db
     // список всех страниц
     protected function getPagesList()
     {
-        $result = $this->sql("SELECT id, menu_name FROM pages");
+        $result = $this->sql("SELECT id, menu_name, created_at, updated_at FROM pages");
         return $result;
     }
 
@@ -24,6 +24,13 @@ class MPage extends Db
     // сохранить отредактированную страницу
     protected function saveEditedPage($sql)
     {
+        $this->sql($sql);
+    }
+
+    // удалить страницу
+    public function deletePage($id)
+    {
+        echo $sql = "DELETE FROM pages WHERE id='{$id}'";
         $this->sql($sql);
     }
 }

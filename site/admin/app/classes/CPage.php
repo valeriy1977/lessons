@@ -19,6 +19,8 @@ class CPage extends MPage
     // сохранить отредактированную страницу
     public function  savePageAfterEdit($id,$post)
     {
+        $dt=time();
+
         $sql = "UPDATE pages SET ";
 
         foreach ($post as $key=>$value)
@@ -27,7 +29,8 @@ class CPage extends MPage
         }
 
         $sql = substr($sql,0,-2);
-        $sql .=" WHERE id='{$id}' ";
+        $sql .=", updated_at='{$dt}' WHERE id='{$id}' ";
+
 
         $this->saveEditedPage($sql);
     }
@@ -35,6 +38,8 @@ class CPage extends MPage
     // добавить страницу
     public function  addPage($post)
     {
+        $dt = time();
+
         $sql = "INSERT INTO pages (";
 
         foreach ($post as $key=>$value)
@@ -43,7 +48,7 @@ class CPage extends MPage
         }
 
         $sql = substr($sql,0,-2);
-        $sql .=") VALUES(";
+        $sql .=", created_at) VALUES(";
 
         foreach ($post as $key=>$value)
         {
@@ -51,10 +56,13 @@ class CPage extends MPage
         }
 
         $sql = substr($sql,0,-2);
-        $sql .=")";
+        $sql .=", \"$dt\")";
+
+
 
         $this->saveEditedPage($sql);
 
     }
+
 
 }

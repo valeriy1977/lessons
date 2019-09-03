@@ -27,6 +27,10 @@ if ($_SESSION['loged'])
             case "pageadd":
                 require_once "views/Vpageadd.php";
                 break;
+            // удаление страницы
+            case "pagedelete":
+                $pages->deletePage($_GET['id']);
+                break;
         }
 
     }
