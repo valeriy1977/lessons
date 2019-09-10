@@ -30,7 +30,7 @@ class MPage extends Db
     // удалить страницу
     public function deletePage($id)
     {
-        echo $sql = "DELETE FROM pages WHERE id='{$id}'";
+        $sql = "DELETE FROM pages WHERE id='{$id}'";
         $this->sql($sql);
     }
 }

@@ -10,6 +10,10 @@ if ($_SESSION['loged'])
     {
         switch ($_GET['page'])
         {
+            // если нажали кнопку изменить пароль
+            case "changepass":
+                require_once "views/VchangePass.php";
+                break;
             // если нажали кнопку выход
             case "logout":
                 unset($_SESSION['loged']);
@@ -41,6 +45,11 @@ if ($_SESSION['loged'])
         {
             switch ($_GET['page'])
             {
+                // изменить пароль
+                case "changepass":
+                    $change_pass = new \app\classes\CLogin();
+                    $change_pass->changePass($_POST);
+                    break;
                 // редактирование страницы
                 case "pageedit":
                     $pages->savePageAfterEdit($_GET['id'],$_POST);

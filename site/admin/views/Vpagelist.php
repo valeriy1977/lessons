@@ -1,4 +1,4 @@
-Список страниц
+Список страниц<br><br>
 <table id="pagelist">
     <tr class="table_header">
         <td>Название страницы</td>
