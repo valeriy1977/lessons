@@ -33,4 +33,5 @@ class MPage extends Db
         $sql = "DELETE FROM pages WHERE id='{$id}'";
         $this->sql($sql);
     }
+
 }

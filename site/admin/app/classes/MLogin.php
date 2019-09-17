@@ -21,4 +21,19 @@ class MLogin extends Db
             header('Refresh: 0');
         }
     }
+
+    protected function checkPass($pass)
+    {
+        $sql = "SELECT login FROM users WHERE id='{$_SESSION['user_id']}' AND pass='{$pass}'";
+        if ($this->sql($sql))
+        {
+            return true;
+        }
+    }
+
+    protected function changeNewPass($new_pass)
+    {
+        $sql = "UPDATE users SET pass='{$new_pass}' WHERE id='{$_SESSION['user_id']}'";
+        $this->sql($sql);
+    }
 }
