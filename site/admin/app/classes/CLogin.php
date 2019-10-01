@@ -11,7 +11,6 @@ class CLogin extends MLogin
         $salt1 = md5("Дом");
         $salt2 = md5("море");
         $pass = md5($salt1.md5($pass).$salt2);
-
         return $pass;
     }
 
@@ -42,6 +41,15 @@ class CLogin extends MLogin
                 $new_pass = $this->pass($user['newpass1']);
                 $this->changeNewPass($new_pass);
             }
+            else
+            {
+                echo "Новые пароли не совпадают";
+            }
+
+        }
+        else
+        {
+            echo "Старый пароль не подходит!";
         }
 
 

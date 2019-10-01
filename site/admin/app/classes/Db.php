@@ -2,6 +2,8 @@
 namespace app\classes;
 
 
+use mysql_xdevapi\Exception;
+
 class Db extends Config
 {
     protected $connection;
@@ -20,19 +22,21 @@ class Db extends Config
         if($query)
         {
             // в $result будут сырые данные
-            $result = mysqli_query($this->connection,$query);
-            while ($row = mysqli_fetch_assoc($result)) // сохраняем одну строку c таблицы БД в $row
+            try
             {
-                // сформируем новый массив $pages
-                $pages[] = $row; // равен одной строке с БД
+                $result = mysqli_query($this->connection,$query);
+
+                while ($row = mysqli_fetch_assoc($result)) // сохраняем одну строку c таблицы БД в $row
+                {
+                    // сформируем новый массив $pages
+                    $pages[] = $row; // равен одной строке с БД
+                }
+
+                // возвращаем сформированный массив
+                return $pages;
+            }catch (Exception $e) {
+                echo 'возникла ошибка: ',  $e->getMessage(), "\n";
             }
-
-            /*        echo "<PRE>";
-                    var_export($pages);
-                    echo "</PRE>";*/
-
-            // возвращаем сформированный массив
-            return $pages;
 
         }
     }

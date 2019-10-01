@@ -1,5 +1,5 @@
 <form method="post">
-    Старый пароль:
+    Текущий пароль:
     <input type="password" name="oldpass">
     Новый пароль:
     <input type="password" name="newpass1">

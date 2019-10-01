@@ -25,6 +25,7 @@ class MLogin extends Db
     protected function checkPass($pass)
     {
         $sql = "SELECT login FROM users WHERE id='{$_SESSION['user_id']}' AND pass='{$pass}'";
+
         if ($this->sql($sql))
         {
             return true;
@@ -34,6 +35,15 @@ class MLogin extends Db
     protected function changeNewPass($new_pass)
     {
         $sql = "UPDATE users SET pass='{$new_pass}' WHERE id='{$_SESSION['user_id']}'";
-        $this->sql($sql);
+
+        if ($res = $this->sql($sql))
+        {
+            echo "Возникла ошибка!";
+        }
+        else
+        {
+            echo "Ваш пароль был успешно изменён!";
+        }
+
     }
 }
