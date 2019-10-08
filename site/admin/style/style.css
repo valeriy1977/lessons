@@ -1,3 +1,40 @@
+#header
+{
+    background-color: green;
+    color: whitesmoke;
+    text-align: center;
+}
+
+#top_menu
+{
+    background-color: darkslategray;
+    color: whitesmoke;
+
+}
+
+.loged
+{
+    background-color: navy;
+}
+
+.menu a
+{
+    color: whitesmoke;
+    background-color: saddlebrown;
+    text-decoration: none;
+    padding: 1%;
+    display: block;
+    float: left;
+    margin-left: 2px;
+}
+
+.menu a:hover
+{
+    background-color: burlywood;
+    color: darkslategray;
+    transition-delay: 1ms;
+}
+
 #pagelist
 {
     border-collapse: collapse;

@@ -19,7 +19,13 @@ session_start();
     <title>Система администрирования</title>
 </head>
 <body>
-<div class="container">
-    <h1>Здравствуйте!</h1>
-</div>
-</body>
+<div  class="container-fluid">
+    <div id="header" class="row">
+        <div class="col-sm-1">
+            ЛОГО
+        </div>
+        <div class="col-sm">
+            <h1>Система администрирования сайта</h1>
+        </div>
+    </div>
+
