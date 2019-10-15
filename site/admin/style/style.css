@@ -5,6 +5,11 @@
     text-align: center;
 }
 
+#header h1
+{
+    padding: 2%;
+}
+
 #top_menu
 {
     background-color: darkslategray;
@@ -15,6 +20,11 @@
 .loged
 {
     background-color: navy;
+}
+
+.logo
+{
+    margin: 20px 0;
 }
 
 .menu a
