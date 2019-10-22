@@ -32,8 +32,8 @@ foreach ($all_pages as $page)
 
             ?>
         </td>
-        <td><a href='index.php?page=pageedit&id=<?=$page['id']?>'>редактировать</a></td>
-        <td><a href='index.php?page=pagedelete&id=<?=$page['id']?>'>удалить</td>
+        <td><a href='index.php?page=pageedit&id=<?=$page['id']?>'><i class="icon-pencil"></i></a></td>
+        <td><a href='index.php?page=pagedelete&id=<?=$page['id']?>'><i class="icon-trash"></i></td>
     </tr>
 
 <?php

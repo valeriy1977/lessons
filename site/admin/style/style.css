@@ -1,3 +1,9 @@
+body
+{
+    background-image: url("../../img/80.png");
+    color: whitesmoke;
+}
+
 #header
 {
     background-color: green;
@@ -19,7 +25,8 @@
 
 .loged
 {
-    background-color: navy;
+    padding: 0.7%;
+
 }
 
 .logo
@@ -30,7 +37,7 @@
 .menu a
 {
     color: whitesmoke;
-    background-color: saddlebrown;
+    background-image: url("../../img/links.png");
     text-decoration: none;
     padding: 1%;
     display: block;
@@ -40,9 +47,9 @@
 
 .menu a:hover
 {
-    background-color: burlywood;
-    color: darkslategray;
-    transition-delay: 1ms;
+    background-image: url("../../img/links_hover.png");
+    transition-duration: 1s;
+    margin-left: 1%;
 }
 
 #pagelist
@@ -54,6 +61,14 @@
 {
     padding: 10px;
     border-bottom: 1px solid black;
+}
+
+#pagelist td a
+{
+    color: whitesmoke;
+    text-align: center;
+    text-decoration: none;
+    display: block;
 }
 
 
