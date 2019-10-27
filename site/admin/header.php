@@ -16,16 +16,22 @@ session_start();
     }
     ?>
     <link href="style/style.css" rel="stylesheet" type="text/css">
+     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <title>Система администрирования</title>
 </head>
 <body>
+<?php
+if ($_SESSION['loged'])
+{
+?>
 <div  class="container-fluid">
     <div id="header" class="row">
         <div class="col-sm-1">
-            ЛОГО
+            <img class="logo" src="../img/logo.png" width="100"/>
         </div>
         <div class="col-sm">
             <h1>Система администрирования сайта</h1>
         </div>
     </div>
-
+<?php
+}
