@@ -9,7 +9,7 @@ class MPage extends Db
     // список всех страниц
     protected function getPagesList()
     {
-        $result = $this->sql("SELECT id, menu_name, created_at, updated_at FROM pages");
+        $result = $this->sql("SELECT id, menu_name, created_at, updated_at, visible_in_main_menu FROM pages");
         return $result;
     }
 

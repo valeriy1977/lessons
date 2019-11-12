@@ -1,5 +1,5 @@
 <?php
-$all_menus = $db->sql("SELECT menu_name,id FROM pages");
+$all_menus = $db->sql("SELECT menu_name,id FROM pages WHERE visible_in_main_menu = '1'");
 
 $today = new \app\classes\Today();
 $today->getTodayDate();

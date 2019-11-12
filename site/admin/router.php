@@ -53,6 +53,8 @@ if ($_SESSION['loged'])
                 // редактирование страницы
                 case "pageedit":
                     $pages->savePageAfterEdit($_GET['id'],$_POST);
+                    // перезагружаем страницу
+                    header('Refresh: 0');
                     break;
                 // добавление страницы
                 case "pageadd":

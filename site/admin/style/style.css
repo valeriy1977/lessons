@@ -71,10 +71,26 @@ body
     display: block;
 }
 
+#pagelist td i
+{
+    color: whitesmoke;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+}
+
 
 
 #pagelist .table_header td
 {
-    background-color: blue;
+    background-color: #2F4F4F;
     color: white;
+}
+
+.page-form
+{
+    background-color: #2F4F4F;
+    margin-top: 1%;
+    padding: 1%;
+    border-radius: 10px;
 }
