@@ -1,0 +1,20 @@
+PHP executable not found. Install PHP 7 and add it to your PATH or set the php.executablePath setting:
+
+Вам также нужно установить php.executablePath внутри settings.json
+Чтобы найти файл settings.json, перейдите по ссылке;
+
+Файл -> Параметры -> Параметры
+В поиске набрать Settings.json
+
+И в этом убедитесь, что установлено следующее:
+
+Для Windows
+
+{
+    "files.autoSave": "afterDelay",
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    "explorer.confirmDelete": false,
+    "php.validate.executablePath": "C:\\xampp\\php\\php.exe",
+    "php.executablePath": "C:\\xampp\\php\\php.exe"
+}
