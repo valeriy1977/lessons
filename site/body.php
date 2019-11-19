@@ -1,13 +1,19 @@
-//Как отправить файл (просто взять и отправить любой файл)?
+
 <body>
 
-<div id='menu'>
+<div class='col-md'>
+    <?php
+    $today = new \app\classes\Today();
+    $today->getTodayDate();
+    ?>
+</div>
+<div id='menu' class='col-md-2'>
     <?php
         require_once "views/Vmenu.php";
      ?>
 </div>
 
-<div class='content'>
+<div class='col-md-2 content'>
     <?php
         require_once "views/Vcontent.php";
      ?>
