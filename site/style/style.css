@@ -5,16 +5,28 @@ body
 /*    margin-left: 50px;*/
 }
 
+#header
+{
+    padding: 2%;
+
+}
+
+#header .today
+{
+    text-align: right;
+}
+
 #menu
 {
     float: left;
+
 }
 
 #menu ul
 {
     list-style-type: none;
     padding-left: 0;
-    width: 155px;
+
 }
 
 #menu a
@@ -23,7 +35,7 @@ body
     background-color: red;
     color: white;
     display: block;
-    width: 100px;
+    width: 250px;
     padding: 10px;
     margin: 5px;
     border: 2px solid #000;
@@ -43,15 +55,18 @@ body
 
 }
 
-.content
+#content
 {
-    background-color: red;
+    background-color: gray;
     color: white;
     height: auto;
-    width: 200px;
     display: inline-block;
     padding: 2%;
     border-radius: 10px;
-    margin-top: 30px;
+    margin-right: 1%;
 }
 
+#content p
+{
+    text-align: justify;
+}

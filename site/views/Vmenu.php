@@ -1,6 +1,7 @@
 <?php
 $all_menus = $db->sql("SELECT menu_name,id FROM pages WHERE visible_in_main_menu = '1'");
 
+
 echo "<ul>\n";
 foreach ($all_menus as $v)
 {
