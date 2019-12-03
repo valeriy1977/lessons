@@ -1,3 +1,5 @@
+html, body {margin: 0; padding: 0;}
+
 body
 {
     background-color: tan;
@@ -35,9 +37,8 @@ body
     background-color: red;
     color: white;
     display: block;
-    width: 250px;
     padding: 10px;
-    margin: 5px;
+    margin: 5px 0px;
     border: 2px solid #000;
     border-radius: 10px;
 }
@@ -45,7 +46,7 @@ body
 #menu a.current_page
 {
     background-color: green;
-    margin-left: 30px;
+
 }
 
 #menu a:hover
@@ -63,7 +64,7 @@ body
     display: inline-block;
     padding: 2%;
     border-radius: 10px;
-    margin-right: 1%;
+    /*margin-right: 1%;*/
 }
 
 #content p

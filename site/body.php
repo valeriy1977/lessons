@@ -14,16 +14,18 @@
       
 </div>
 
-<div id='menu' class='col-md-3'>
-    <?php
-        require_once "views/Vmenu.php";
-     ?>
-</div>
+<div id='header' class='row'>
+    <div id='menu' class='col-md-2'>
+        <?php
+            require_once "views/Vmenu.php";
+        ?>
+    </div>
 
-<div id = 'content' class='col-md-7'>
-    <?php
-        require_once "views/Vcontent.php";
-     ?>
+    <div id = 'content' class='col-md-10'>
+        <?php
+            require_once "views/Vcontent.php";
+        ?>
+    </div>
 </div>
 
 <section class="dws-wrapper" >
