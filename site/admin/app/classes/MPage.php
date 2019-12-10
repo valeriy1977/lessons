@@ -34,4 +34,11 @@ class MPage extends Db
         $this->sql($sql);
     }
 
+    // получить список всех галлерей
+
+    public function getGallerysList()
+    {
+        $result = $this->sql("SELECT * FROM gallery");
+        return $result;
+    }
 }

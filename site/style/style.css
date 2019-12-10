@@ -71,3 +71,12 @@ body
 {
     text-align: justify;
 }
+
+.gallery_image
+{
+    width: 300px;
+    margin: 5px;
+    border-radius: 10px;
+    background-color: yellow;
+    padding: 5px;
+}

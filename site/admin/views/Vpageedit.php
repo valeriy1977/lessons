@@ -1,5 +1,6 @@
 <?php
 $page = $pages->pageForEdit($_GET['id']);
+$galleries = $pages->getGallerysList();
 
 echo "Редактирование страницы ".$page[0]['menu_name'];
 ?>
@@ -17,6 +18,27 @@ echo "Редактирование страницы ".$page[0]['menu_name'];
                 <option value="0">Скрыть</option>
                 <option value="1" <?php if ($page[0]['visible_in_main_menu']) echo 'selected'?>>Отображать</option>
 
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="gallery">Отображать галлерею</label>
+            <select name="gallery" class="form-control" id="gallery">
+
+                <option value="0">Скрыть</option>
+                <option value="1" <?php if ($page[0]['gallery']) echo 'selected'?>>Отображать</option>
+
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="gallery_name">Название галлереи</label>
+            <select name="gallery_name" class="form-control" id="gallery_name">
+                <?php
+                foreach ($galleries as $gallery)
+                {
+                    // доделать selected if($page[0]['gallery'] == 1)
+                    echo "<option value='{$gallery['id']}'>{$gallery['gallery_name']} </option>";
+                }
+                ?>
             </select>
         </div>
         <div class="form-group">
