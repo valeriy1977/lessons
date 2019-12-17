@@ -2,6 +2,7 @@
 $page = $pages->pageForEdit($_GET['id']);
 $galleries = $pages->getGallerysList();
 
+
 echo "Редактирование страницы ".$page[0]['menu_name'];
 ?>
 
@@ -30,13 +31,20 @@ echo "Редактирование страницы ".$page[0]['menu_name'];
             </select>
         </div>
         <div class="form-group">
-            <label for="gallery_name">Название галлереи</label>
-            <select name="gallery_name" class="form-control" id="gallery_name">
+            <label for="gallery_id">Название галлереи</label>
+            <select name="gallery_id" class="form-control" id="gallery_id">
                 <?php
                 foreach ($galleries as $gallery)
                 {
-                    // доделать selected if($page[0]['gallery'] == 1)
-                    echo "<option value='{$gallery['id']}'>{$gallery['gallery_name']} </option>";
+                    if($page[0]['gallery_id'] == $gallery['id'])
+                    {
+                        $selected = 'selected';
+                    }
+                    else
+                    {
+                        $selected = '';
+                    }
+                    echo "<option value='{$gallery['id']}' $selected>{$gallery['gallery_name']} </option>";
                 }
                 ?>
             </select>
