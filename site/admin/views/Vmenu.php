@@ -2,6 +2,7 @@
     <div class="col-sm menu">
         <a href="index.php?page=pagelist"><i class="icon-align-justify"> </i>Список страниц</a>
         <a href="index.php?page=pageadd"><i class="icon-plus"> </i>Добавить страницу</a>
+        <a href="index.php?page=gallerylist"><i class="icon-picture"> </i>Галереи</a>
         <a href="http://localhost/valeriy/site" target="_blank"><i class="icon-reply"></i> На сайт</a>
     </div>
     <div class="col-sm-2 loged">

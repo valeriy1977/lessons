@@ -35,6 +35,11 @@ if ($_SESSION['loged'])
             case "pagedelete":
                 $pages->deletePage($_GET['id']);
                 break;
+            // список галерей
+            case "gallerylist":
+                require_once "views/Vgallerylist.php";
+                break;
+
         }
 
     }
