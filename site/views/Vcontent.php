@@ -1,5 +1,5 @@
 <?php
-$sql = "SELECT content, gallery, gallery_id FROM pages WHERE id='{$_GET['id']}'";
+$sql = "SELECT content FROM pages WHERE id='{$_GET['id']}'";
 $content= $db->sql($sql);
 
 $search_gallery = '[gallery-';
@@ -24,7 +24,10 @@ if($position !==FALSE)
 
 }
 
-//echo $content[0]['content'];
+// добавить в массив с контентом картинки с галерей в цикле 
+$position_after_gallery = $pos+2;
+$content[0]['content'] = substr($content[0]['content'], $position_after_gallery);
+echo $content[0]['content'];
 
 
 
