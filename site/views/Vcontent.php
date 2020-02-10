@@ -1,55 +1,33 @@
 <?php
-
-// Поиск и замена.
-$text = $content;
-$sql = "SELECT content FROM pages WHERE id='{$_GET['id']}'";
-$content = $db->sql($sql);
-$search_gallery = '[gallery-';
-
-preg_match_all("|\[\[gallery-\.(.*)\]\]|U", $text, $matches);
-if (!empty($matches[1]))
-{
-    foreach ($matches[1] as $row)
-    {
-        $item = $db::getRow("SELECT content FROM pages WHERE '{$_GET['id']}'", $row);
-        $replase = (empty($item[0]['content'])) ? '' : $item[0]['content'];
-        $text = str_ireplace('[[gallery-' . $row . ']]', $replase, $text);
-    }
-}
-//
 $sql = "SELECT content FROM pages WHERE id='{$_GET['id']}'";
 $content= $db->sql($sql);
 
-$search_gallery = '[gallery-';
-$position = strpos($content[0]['content'], $search_gallery);
-
-if($position !==FALSE)
+function search_short_code($short_code, $text)
 {
-    $pos = $position+9;
-    $gallery_number  = $content[0]['content']{$pos};
+    $position = strpos($text, $short_code);
 
-    //$gallery_number = substr($content[0], $position);
-    //echo "Галерея номер {$gallery_number}";
-
-    $sql = "SELECT image FROM gallery_images WHERE gallery_id='{$gallery_number}'";
-    $images = $db->sql($sql);
-
-    foreach ($images as $images)
+    if($position !==FALSE)
     {
-        echo "<img class = 'gallery_image' src='img/{$images['image']}'>";
+        $pos = $position+strlen($short_code);
+        $gallery_number  = $text{$pos};
+
+        $sql = "SELECT image FROM gallery_images WHERE gallery_id='{$gallery_number}'";
     }
 
-
+    $position_after_gallery = $pos+2;
+    return ['sql'=>$sql, 'position'=>$position_after_gallery, 'short_code_position'=>$position];
 }
 
-// добавить в массив с контентом картинки с галерей в цикле
-$position_after_gallery = $pos+2;
-$content[0]['content'] = substr($content[0]['content'], $position_after_gallery);
-echo $content[0]['content'];
+$images = search_short_code('[gallery-', $content[0]['content']);
 
+while (!empty($images['short_code_position']))
+{
+    $images = $db->$sql($images['sql']);
+    foreach ($images as $image)
+    {
+        echo "<img class = 'gallery_image' src='img/{$image['image']}'>";
+    }
 
-
-    
-
-
-
+    $content = substr($content[0]['content'], $images['position']);
+    $images = search_short_code('[gallery-', $content);
+}
