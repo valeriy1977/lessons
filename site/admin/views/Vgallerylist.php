@@ -1,6 +1,6 @@
 
 Список галерей<br><br>
-
+<a href='index.php?page=galleryadd'><i class="icon-plus"></i> Добавить галерею</a>
 <table id="pagelist">
     <tr class="table_header">
         <td>Название галереи</td>
@@ -17,8 +17,8 @@ foreach ($galleries as $gallery)
 
     <tr>
         <td><?=$gallery['gallery_name']?></td>
-        <td><a href='index.php?gallery=galleryedit&id=<?=$gallery['id']?>'><i class="icon-pencil"></i></a></td>
-        <td><a href='index.php?gallery=gallerydelete&id=<?=$gallery['id']?>'><i class="icon-trash"></i></td>
+        <td><a href='index.php?page=galleryedit&id=<?=$gallery['id']?>'><i class="icon-pencil"></i></a></td>
+        <td><a href='index.php?page=gallerydelete&id=<?=$gallery['id']?>'><i class="icon-trash"></i></td>
         <td>[gallery-<?=$gallery['id']?>]</td>
     </tr>
 

@@ -12,3 +12,4 @@ spl_autoload_register(function ($name)
 
 // создадим объекты
 $pages = new CPage();
+$gallery = new CGallery();

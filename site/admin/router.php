@@ -39,7 +39,10 @@ if ($_SESSION['loged'])
             case "gallerylist":
                 require_once "views/Vgallerylist.php";
                 break;
-
+            // добавить галерею
+            case "galleryadd":
+                require_once "views/Vgalleryadd.php";
+                break;
         }
 
     }
@@ -64,6 +67,10 @@ if ($_SESSION['loged'])
                 // добавление страницы
                 case "pageadd":
                     $pages->addPage($_POST);
+                    break;
+                // добавить галерею
+                case "galleryadd":
+                    $gallery->addGallery($_POST);
                     break;
             }
 

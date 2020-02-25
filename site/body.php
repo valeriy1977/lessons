@@ -28,32 +28,5 @@
     </div>
 </div>
 
-<section class="dws-wrapper" >
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="img-block"><img src="img/1.jpg" alt="">
-                    <h3>Блок 1</h3>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="img-block"><img src="img/2.jpg" alt="">
-                    <h3>Блок 2</h3>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="img-block"><img src="img/3.jpg" alt="">
-                    <h3>Блок 3</h3>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="img-block"><img src="img/4.jpg" alt="">
-                    <h3>Блок 4</h3>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <?php
 require_once "router.php";
