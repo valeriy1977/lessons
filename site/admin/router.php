@@ -34,15 +34,30 @@ if ($_SESSION['loged'])
             // удаление страницы
             case "pagedelete":
                 $pages->deletePage($_GET['id']);
+                // перезагружаем страницу
+                header('Location: index.php?page=pagelist');
                 break;
             // список галерей
             case "gallerylist":
                 require_once "views/Vgallerylist.php";
                 break;
+            // редактирование галереи
+            case "galleryedit":
+                require_once "views/Vgalleryedit.php";
+                break;
             // добавить галерею
             case "galleryadd":
                 require_once "views/Vgalleryadd.php";
                 break;
+            // удалить галерею
+            case "gallerydelete":
+                $gallery->deleteGallery($_GET['id']);
+                // перезагружаем страницу
+                header('Location: index.php?page=gallerylist');
+                break;
+            //  удалить картинку из галереи
+            case "imagedelete":
+                $gallery->imagedelete($_GET['imageid']);
         }
 
     }
@@ -67,10 +82,20 @@ if ($_SESSION['loged'])
                 // добавление страницы
                 case "pageadd":
                     $pages->addPage($_POST);
+                    // перезагружаем страницу
+                    header('Location: index.php?page=pagelist');
+                    break;
+                // редактирование галереи
+                case "galleryedit":
+                    $gallery->saveGalleryAfterEdit($_GET['id'],$_POST);
+                    // обратно в список галерей
+                    header('Location: index.php?page=gallerylist');
                     break;
                 // добавить галерею
                 case "galleryadd":
                     $gallery->addGallery($_POST);
+                    // обратно в список галерей
+                    header('Location: index.php?page=gallerylist');
                     break;
             }
 

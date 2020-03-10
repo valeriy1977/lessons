@@ -79,6 +79,11 @@ body
     display: block;
 }
 
+.gallery_image
+{
+    margin-top: 5px;
+    width: 200px;
+}
 
 
 #pagelist .table_header td

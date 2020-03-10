@@ -4,9 +4,9 @@
 namespace app\classes;
 
 
-class CGallery extends Db
+class CGallery extends MGallery
 {
-    // добавить страницу
+    // добавить галерею
     public function  addGallery($post)
     {
 
@@ -30,5 +30,22 @@ class CGallery extends Db
 
         $this->sql($sql);
 
+    }
+
+    // сохранить отредактированную галерею
+    public function  saveGalleryAfterEdit($id,$post)
+    {
+
+        $sql = "UPDATE gallery SET ";
+
+        foreach ($post as $key=>$value)
+        {
+            $sql .=" {$key}='{$value}', ";
+        }
+
+        $sql = substr($sql,0,-2);
+        $sql .=" WHERE id='{$id}' ";
+
+        $this->sql($sql);
     }
 }
