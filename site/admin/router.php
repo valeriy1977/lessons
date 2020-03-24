@@ -55,9 +55,18 @@ if ($_SESSION['loged'])
                 // перезагружаем страницу
                 header('Location: index.php?page=gallerylist');
                 break;
+            // список картинок для добавления в галерею
+            case "pictureadd":
+                require_once "views/Vpictureadd.php";
+                break;// список картинок для добавления в галерею
+            case "imageadd":
+                $gallery->addImageToGallery($_GET['galleryid'],$_GET['imageid']);
+                break;
             //  удалить картинку из галереи
             case "imagedelete":
                 $gallery->imagedelete($_GET['imageid']);
+                // перезагружаем страницу
+                header("Location: index.php?page=galleryedit&id={$_GET['galleryid']}");
         }
 
     }

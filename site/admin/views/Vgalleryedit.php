@@ -23,11 +23,13 @@ $gallery_images = $gallery->getGalleryImages($_GET['id']);
             <input type="submit" value="Сохранить">
         </div>
     </form>
+    <a href="index.php?page=pictureadd&galleryid=<?=$_GET['id']?>">Добавить картинку</a>
     <?php
+
 
     foreach ($gallery_images as $picture)
     {
-        $pictures_for_content .=  "<div class='gallery_image'><img class = 'gallery_image' src='../img/{$picture['image']}'> <a href='index.php?page=imagedelete&imageid={$picture['id']}'>удалить</a> </div>";
+        $pictures_for_content .=  "<div class='gallery_image'><img class = 'gallery_image' src='../img/{$picture['image']}'> <a href='index.php?page=imagedelete&imageid={$picture['id']}&galleryid={$_GET['id']}'>удалить</a> </div>";
     }
 
     echo $pictures_for_content;

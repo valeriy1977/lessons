@@ -19,16 +19,26 @@ class MGallery extends Db
         return $this->sql($sql);
     }
 
+    public function getDeletedImages()
+    {
+        $sql = "SELECT id, image FROM gallery_images WHERE gallery_id='0'";
+        return $this->sql($sql);
+    }
+
     public function getGalleryImages($id)
     {
         $sql = "SELECT id, image FROM gallery_images WHERE gallery_id='{$id}'";
         return $this->sql($sql);
     }
 
+    public function addImageToGallery($gallery_id, $image_id)
+    {
+        $sql = "UPDATE gallery_images SET gallery_id='{$gallery_id}' WHERE id='{$image_id}'";
+        $this->sql($sql);
+    }
     public function imagedelete($id)
     {
         $sql = "UPDATE gallery_images SET gallery_id='0' WHERE id='{$id}'";
-        echo $sql;
         $this->sql($sql);
     }
 }
