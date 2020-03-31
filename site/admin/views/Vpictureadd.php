@@ -7,4 +7,12 @@ foreach ($gallery_images as $picture)
 }
 
 echo $pictures_for_content;
-?>
+//$one =1;
+//$two = 2;
+//$sum = $one+$two;
+//echo $one." + ".$two." равно ".$sum;
+//?>
+<?//="{$one} + {$two} равно {$sum}"?>
+
+
+<a href='index.php?page=galleryedit&id=<?="{$_GET['galleryid']}"?>'>Обратно в галерею</a>
