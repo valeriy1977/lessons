@@ -61,7 +61,7 @@ if ($_SESSION['loged'])
                 break;// список картинок для добавления в галерею
             case "imageadd":
                 $gallery->addImageToGallery($_GET['galleryid'],$_GET['imageid']);
-                require_once "views/Vpictureadd.php";
+                //require_once "views/Vpictureadd.php";
                 break;
             //  удалить картинку из галереи
             case "imagedelete":

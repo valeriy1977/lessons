@@ -1,5 +1,5 @@
 <?php
-$gallery_images = $gallery->getDeletedImages();
+$gallery_images = $gallery->getAllImages();
 
 foreach ($gallery_images as $picture)
 {
