@@ -58,7 +58,8 @@ if ($_SESSION['loged'])
             // список картинок для добавления в галерею
             case "pictureadd":
                 require_once "views/Vpictureadd.php";
-                break;// список картинок для добавления в галерею
+                break;
+            // добавление конкретной картинки в галерею
             case "imageadd":
                 $gallery->addImageToGallery($_GET['galleryid'],$_GET['imageid']);
                 //require_once "views/Vpictureadd.php";
