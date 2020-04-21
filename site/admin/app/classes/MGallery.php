@@ -25,61 +25,55 @@ class MGallery extends Db
         return $this->sql($sql);
     }
 
-    public function getGalleryImages($id)
+    public function getGalleryImages($gallery_id)
     {
+        $sql = "SELECT image_ids FROM gallery WHERE id='{$gallery_id}'";
+        $images_list =  $this->sql($sql);
 
-        // ОСТАНОВИЛИСЬ ЗДЕСЬ
-        $sql = "SELECT gallery_id FROM gallery_images";
-        $gallerys_list =  $this->sql($sql);
-
-        foreach ($gallerys_list as $g_ids)
-        {
-            foreach ($g_ids as $id)
-            {
-                $g []= unserialize($g_ids['gallery_id']);
-            }
-
-        }
-        echo "<PRE>";
-        var_export($g);
-        echo "</PRE>";
-        //$sql = "SELECT id, image FROM gallery_images WHERE gallery_id='{$id}'";
-
+        $all_images = unserialize($images_list[0]['image_ids']);
+        return $all_images;
     }
 
-    public function getGallerysIdForImage($id)
+    public function getImageFullName($id)
     {
-        $sql = "SELECT gallery_id FROM gallery_images WHERE id='{$id}'";
+        $sql = "SELECT image FROM gallery_images WHERE id='{$id}'";
         return $this->sql($sql);
     }
 
+
+
     public function addImageToGallery($gallery_id, $image_id)
     {
-        // получим с БД список галерей для конкретной картинки (в сыром виде)
-        $g_ids = $this->getGallerysIdForImage($image_id);
-        // конвертируем в массив
-        $gallerys_list = unserialize($g_ids[0]['gallery_id']);
+        // получим название картинки с определённым id
+        $image_name = $this->getImageFullName($image_id);
+        $image_name = $image_name[0]['image'];
+
+        // получим с БД список полных имён картинок для конкретной галереи (в сыром виде)
+        $full_names = $this->getGalleryImages($gallery_id);
 
         // если массив пустой
-        if (empty($gallerys_list))
+        if (empty($full_names))
         {
-            // добавим номер галереи
-            $gallerys_list [] = $gallery_id;
+            // добавим полное имя картинки в галерею
+            $full_names [] = $image_name;
         }
         else
         {
-            foreach ($gallerys_list as $g_id)
+            //  ДУБЛИРУЕТ КАРТИНКУ В МАССИВ
+            foreach ($full_names as $image_full_name)
             {
-                if($gallery_id != $g_id)
+                if($image_name != $image_full_name)
                 {
-                    $gallerys_list [] = $gallery_id;
+                    // добавим полное имя картинки в галерею
+                    $full_names [] = $image_name;
                 }
             }
         }
+        var_export($full_names);
 
-        // сериализуем массив с номерами галерей для конкретной картинки
-        $serialized = serialize($gallerys_list);
-        $sql = "UPDATE gallery_images SET gallery_id='{$serialized}' WHERE id='{$image_id}'";
+        // сериализуем массив с полным именем картинок для конкретной галереи
+        $serialized = serialize($full_names);
+        $sql = "UPDATE gallery SET image_ids='{$serialized}' WHERE id='{$gallery_id}'";
         $this->sql($sql);
     }
     public function imagedelete($id)
