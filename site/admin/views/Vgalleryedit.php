@@ -1,6 +1,7 @@
 <?php
 $gallery_name = $gallery->getGalleryName($_GET['id']);
 $gallery_images = $gallery->getGalleryImages($_GET['id']);
+
 ?>
 <p>Редактирование галереи</p>
 

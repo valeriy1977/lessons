@@ -49,30 +49,27 @@ class MGallery extends Db
         $image_name = $image_name[0]['image'];
 
         // получим с БД список полных имён картинок для конкретной галереи (в сыром виде)
-        $full_names = $this->getGalleryImages($gallery_id);
+        $all_images_names = $this->getGalleryImages($gallery_id);
 
         // если массив пустой
-        if (empty($full_names))
+        if (empty($all_images_names))
         {
             // добавим полное имя картинки в галерею
-            $full_names [] = $image_name;
+            $all_images_names [] = $image_name;
         }
         else
         {
-            //  ДУБЛИРУЕТ КАРТИНКУ В МАССИВ
-            foreach ($full_names as $image_full_name)
+            if (in_array($image_name, $all_images_names)) {
+
+            }
+            else
             {
-                if($image_name != $image_full_name)
-                {
-                    // добавим полное имя картинки в галерею
-                    $full_names [] = $image_name;
-                }
+                $all_images_names [] = $image_name;
             }
         }
-        var_export($full_names);
 
         // сериализуем массив с полным именем картинок для конкретной галереи
-        $serialized = serialize($full_names);
+        $serialized = serialize($all_images_names);
         $sql = "UPDATE gallery SET image_ids='{$serialized}' WHERE id='{$gallery_id}'";
         $this->sql($sql);
     }
