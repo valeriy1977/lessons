@@ -62,11 +62,12 @@ if ($_SESSION['loged'])
             // добавление конкретной картинки в галерею
             case "imageadd":
                 $gallery->addImageToGallery($_GET['galleryid'],$_GET['imageid']);
-                //require_once "views/Vpictureadd.php";
+                // перезагружаем страницу
+                header("Location: index.php?page=galleryedit&id={$_GET['galleryid']}");
                 break;
             //  удалить картинку из галереи
             case "imagedelete":
-                $gallery->imagedelete($_GET['imageid']);
+                $gallery->imagedelete($_GET['imagename'], $_GET['galleryid']);
                 // перезагружаем страницу
                 header("Location: index.php?page=galleryedit&id={$_GET['galleryid']}");
         }

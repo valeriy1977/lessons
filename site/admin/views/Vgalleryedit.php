@@ -22,7 +22,7 @@ $gallery_images = $gallery->getGalleryImages($_GET['id']);
 
     foreach ($gallery_images as $picture)
     {
-        $pictures_for_content .=  "<div class='gallery_image'><img class = 'gallery_image' src='../img/{$picture['image']}'> <a href='index.php?page=imagedelete&imageid={$picture['id']}&galleryid={$_GET['id']}'>удалить</a> </div>";
+        $pictures_for_content .=  "<div class='gallery_image'><img class = 'gallery_image' src='../img/{$picture}'> <a href='index.php?page=imagedelete&imagename={$picture}&galleryid={$_GET['id']}'>удалить</a> </div>";
     }
 
     echo $pictures_for_content;

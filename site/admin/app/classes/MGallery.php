@@ -73,9 +73,15 @@ class MGallery extends Db
         $sql = "UPDATE gallery SET image_ids='{$serialized}' WHERE id='{$gallery_id}'";
         $this->sql($sql);
     }
-    public function imagedelete($id)
+
+    public function imagedelete($image_name, $gallery_id)
     {
-        $sql = "UPDATE gallery_images SET gallery_id='0' WHERE id='{$id}'";
+        $gallery_images = $this->getGalleryImages($gallery_id);
+        unset($gallery_images[array_search($image_name, $gallery_images)]);
+
+        // сериализуем массив с полным именем картинок для конкретной галереи
+        $serialized = serialize($gallery_images);
+        $sql = "UPDATE gallery SET image_ids='{$serialized}' WHERE id='{$gallery_id}'";
         $this->sql($sql);
     }
 }
